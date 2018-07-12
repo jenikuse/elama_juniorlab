@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''Write an algorithm that will check whether IPv4 addresses are valid.
+'''
+Write an algorithm that will check whether IPv4 addresses are valid.
 IP addresses are valid if they consist of 4 octets with values between 0..255 (inclusive)
 
-The input argument is a string with an IP address.'''
-
+The input argument is a string with an IP address.
+'''
 def isvalidip(str):
     res, idx, flag = [], 0, True
 
@@ -21,18 +22,8 @@ def isvalidip(str):
 
             if res[-1] < 0 or res[-1] > 255:
                 return False
-
     res.append(int(str[idx:len(str)]))
+
     if len(res) != 4:
         flag = False
-
     return flag
-
-print(isvalidip("123.456.789.0"))
-print(isvalidip("abc.def.ghi.jkl"))
-print(isvalidip("12.34.56"))
-print(isvalidip("123,45,67,89"))
-print(isvalidip("53.58.97.93"))
-print(isvalidip("28.84.197.169"))
-print(isvalidip("255.255.255.255"))
-print(isvalidip(" 1.2.3.4"))

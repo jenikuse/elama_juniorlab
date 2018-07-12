@@ -13,7 +13,6 @@ If the arguments passed are equal, return None.
 def sq_in_rect(lng, wdth):
 
     if lng == wdth:
-        print None
         return None
     elif lng < wdth:
         big, small = wdth, lng
@@ -37,19 +36,11 @@ def sq_in_rect(lng, wdth):
             tmp = res[-n-1] % res[-1]
             for i in range(res[-1]/tmp):
                 res.append(tmp)
-    # strange case when we have many squares with the same size (it works)
+
+    # strange case when we have many squares with the same size, but it works
     else:
         add_num = bs[0] - (res[-1] * n)
         for i in range(res[-1] / (bs[0] - (res[-1] * n))):
             res.append(add_num)
 
-    print res
     return res
-
-sq_in_rect(5, 5)
-sq_in_rect(5, 3)
-sq_in_rect(3, 5)
-sq_in_rect(20, 14)
-sq_in_rect(240, 32)
-sq_in_rect(135, 85)
-sq_in_rect(6, 6)
