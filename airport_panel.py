@@ -36,10 +36,3 @@ def flap_display(lines, rotors):
         res[0] += s[i]
 
     return res
-'''
-flap_display(["CAT"], [[1, 13, 27]]) #["DOG"]
-flap_display(["HELLO "], [[15,49,50,48,43,13]]) #["WORLD!"]
-flap_display(["CODE"], [[20,20,28,0]]) #["WARS"]
-flap_display(["NOTHING MOVED"], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]) #["NOTHING MOVED"]
-flap_display(["EFGH"], [[53, 53, 53, 53]]) #["DDDD"]
-'''
