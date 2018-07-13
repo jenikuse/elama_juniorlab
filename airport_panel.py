@@ -18,29 +18,28 @@ all values change until the left rotor symbol is correct.
 the flapDisplay function takes two arguments: an array of words and an array of offsets.
 """
 def flap_display(lines, rotors):
-    # your code here
 
     sample = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ?!@#&()|<>.:=-+*/0123456789'
     s, rtrs = list(lines[0]), rotors[0]
+    res = ['']
+    for i in range(len(s)):
+        for j in range(i, len(rtrs)):
 
-    for i in range(len(rtrs)):
-        current = sample.find(s[i])
-        s[i] = sample[current + rtrs[i]]
-        print s
+            current = sample.find(s[j])
+            idx_rotor = current + rtrs[i]
+            if idx_rotor >= len(sample):
+                idx_rotor -= len(sample)
 
-        for j in range(len(s)):
-            if j > i:
-                current = sample.find(s[i])
-                #s[j] = sample[current + rtrs[i]]
-  
+            s[j] = sample[idx_rotor]
 
+    for i in range(len(s)):
+        res[0] += s[i]
 
-    return s
-
+    return res
+'''
 flap_display(["CAT"], [[1, 13, 27]]) #["DOG"]
-#flap_display(["HELLO "], [[15,49,50,48,43,13]]) #["WORLD!"]
-#flap_display(["CODE"], [[20,20,28,0]]) #["WARS"]
-#flap_display(["NOTHING MOVED"], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]) #["NOTHING MOVED"]
-#flap_display(["EFGH"], [[53, 53, 53, 53]]) #["DDDD"]
-#["CAN HEAR YOU SCREAM!"]
-#flap_display(["IN SPACE NOBODY...  "], [[48, 47, 0, 21, 38, 120, 48, 15, 41, 11, 43, 19, 47, 3, 17, 2, 41, 50, 23, 16]])
+flap_display(["HELLO "], [[15,49,50,48,43,13]]) #["WORLD!"]
+flap_display(["CODE"], [[20,20,28,0]]) #["WARS"]
+flap_display(["NOTHING MOVED"], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]) #["NOTHING MOVED"]
+flap_display(["EFGH"], [[53, 53, 53, 53]]) #["DDDD"]
+'''

@@ -4,7 +4,7 @@ import time
 from good_vs_evil import *
 from ip_validation import *
 from squares_in_rectangle import *
-#from airport_panel import *
+from airport_panel import *
 
 def good_evil():
     armies = (["707 423 584 293 572 62", "136 864 0 626 15 152 121"],
@@ -36,18 +36,34 @@ def find_squares():
         print '\nThe length of the rectangle: %i\tThe width of the rectangle: ' % rect[0], rect[1]
         print 'Sizes of squares: ', sq_in_rect(rect[0], rect[1])
 
+def flap_dspl():
+    strings = ([["CAT"], [[1, 13, 27]]],  \
+               [["HELLO "], [[15, 49, 50, 48, 43, 13]]],  \
+               [["CODE"], [[20, 20, 28, 0]]],  \
+               [["NOTHING MOVED"], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]], \
+               [["EFGH"], [[53, 53, 53, 53]]])
+    for str in strings:
+        print '\nString for change: %s\nRotors value to change: %s' % (str[0], str[1])
+        print 'New string on the display: ', flap_display(str[0], str[1])
+
 
 while True:
-    choice = int(raw_input('\n1 – Who will win? Good army or evils?\n'
+    choice = int(raw_input('\n\nEnter a number to see:\n'
+                           '1 – Who will win? Good army or evils?\n'
                            '2 – Check if the IP-address is correct.\n'
-                           '3 – How many squares will fit in a rectangle?\n\n'
-                           '0 – Exit'))
+                           '3 – How many squares will fit in a rectangle?\n'
+                           '4 – See how work rotors on the airport display\n'
+                           '\n0 – Exit\n'))
+
     if choice == 1:
         good_evil()
     elif choice == 2:
         check_ip()
     elif choice == 3:
         find_squares()
+    elif choice == 4:
+        flap_dspl()
     elif choice == 0:
         print 'Program was ended\n'
         break
+    time.sleep(1)
