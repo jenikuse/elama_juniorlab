@@ -22,23 +22,34 @@ The function should return "Battle Result: Good triumphs over Evil" if good wins
 "Battle Result: Evil eradicates all trace of Good" if evil wins and
 "Battle Result: No victor on this battle field" if it is a draw.
 """
+
+
 def goodvsevil(good, evil):
 
-    def sumString(str):
-        sum, idx = 0, 0
+    def sumString(str, flag):
+        coeff_good, coeff_evil = [1, 2, 3, 3, 4, 10], [1, 2, 2, 2, 3, 5, 10]
+        total, idx, j = [], 0, 0
+
+        if flag == 0:
+            arr = coeff_good
+        elif flag == 1:
+            arr = coeff_evil
+
         for i in range(len(str)):
             if str[i] == ' ':
-                sum += int(str[idx:i])
+                total.append(int(str[idx:i]) * arr[j])
                 idx = i + 1
+                j += 1
             elif i == len(str) - 1:
-                sum += int(str[idx:i + 1])
-        return sum
+                total.append(int(str[idx:i + 1]) * arr[j])
 
-    sum_good, sum_evil = sumString(good), sumString(evil)
+        return total
 
-    if sum_good > sum_evil:
+    go, ev = sumString(good, 0), sumString(evil, 1)
+
+    if sum(go) > sum(ev):
         return "Battle Result: Good triumphs over Evil"
-    elif sum_good < sum_evil:
+    elif sum(go) < sum(ev):
         return "Battle Result: Evil eradicates all trace of Good"
     else:
         return "Battle Result: No victory on this battle field"
